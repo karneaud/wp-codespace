@@ -3,9 +3,9 @@ version: '3.8'
 services: 
   app:
     image: tomrosert/wp-codespace:latest
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
     restart: unless-stopped
     volumes:
       - ../..:/workspaces:cached

@@ -7,7 +7,16 @@
 	// Features to add to the dev container. More info: https://containers.dev/implementors/features.
 	"features": {
 	},
-
+	"containerEnv":{
+		"MYSQL_USER":"wordpress",
+		"MYSQL_USER_PASSWORD":"wordpress",
+		"MYSQL_DATABASE":"wordpress",
+		"MYSQL_HOST":"db",
+		"WORDPRESS_USER_PASSWORD":"wordpress",
+		"WORDPRESS_TITLE":"Wordpress Codespace Environment",
+		"PLUGIN_NAME":"wordpress-codespaces",
+		"WORDPRESS_USER_EMAIL":"admin@wordpress-codespaces.local"
+	},
 	"customizations": {
 		"vscode": {		
 			"extensions": [
@@ -31,7 +40,7 @@
 		3306
 	],
 
-	"postCreateCommand": "./.devcontainer/postCreateCommand.sh > .devcontainer/postCreateCommand.log  && code - r wordpress/wp-content/plugins/wp-codespace/wp-codespace.php",
+	"postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh > .devcontainer/postCreateCommand.log",
 	
 	"portsAttributes": {
 		"3306": {
