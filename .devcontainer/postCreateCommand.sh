@@ -14,13 +14,13 @@ sudo service mariadb start
 sudo mysqladmin create $MYSQL_DATABASE
 sudo mysqladmin create wordpress
 sudo mysqladmin --host=localhost password $MYSQL_USER_PASSWORD
-sudo mariadb -hlocalhost -uroot -p$MYSQL_USER_PASSWORD -e "CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD'; GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER'@'localhost'; GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost'; GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER'@'localhost'; FLUSH PRIVILEGES;"
+sudo mysql -hlocalhost -uroot -p$MYSQL_USER_PASSWORD -e "CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD'; GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER'@'localhost'; GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost'; GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER'@'localhost'; FLUSH PRIVILEGES;"
 
 # Apache
 sudo chmod 777 /etc/apache2/sites-available/000-default.conf
 sudo sed "s@.*DocumentRoot.*@\tDocumentRoot $PWD/wordpress@" .devcontainer/000-default.conf > /etc/apache2/sites-available/000-default.conf
 update-rc.d apache2 defaults 
-sudo service apache2 start
+sudo service apache2 restart
 
 LOCALE="en_US"
 
