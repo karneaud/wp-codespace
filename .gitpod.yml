@@ -1,0 +1,21 @@
+---
+image:
+  file: .devcontainer/Dockerfile 
+ports:
+  - port: 8080
+  - port: 3306
+  - port: 9000
+tasks:
+  - name: Setup
+    env:
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: rootmysql
+      MYSQL_USER_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      WORDPRESS_TITLE: wordpress
+      WORDPRESS_USER: karneaud
+    command: >
+      ./.devcontainer/postCreateCommand.sh
+  - name: Composer
+    before: >
+      echo "{ \"github-oauth\" : {  \"github.com\": \"${GITHUB_TOKEN}\" }  }" > auth.json
