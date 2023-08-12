@@ -10,7 +10,7 @@ fi
 
 # Start Mysql
 echo "Setup MYSQL..."
-sudo service mariadb start 
+sudo service mysql start 
 sudo mysqladmin create $MYSQL_DATABASE
 sudo mysqladmin create wordpress
 sudo mysqladmin --host=localhost password $MYSQL_USER_PASSWORD
