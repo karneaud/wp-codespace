@@ -35,7 +35,6 @@
 	// For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
 	"forwardPorts": [
 		80,
-		81,
 		3306
 	],
 
@@ -47,9 +46,6 @@
 		},
 		"80": {
 			"label": "WordPress"
-		},
-		"81": {
-			"label": "phpMyAmdin"
 		}
 	},
 	"postStartCommand": "service apache2 start"
