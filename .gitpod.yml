@@ -15,5 +15,6 @@ tasks:
       WORDPRESS_TITLE: wordpress
       WORDPRESS_USER: karneaud
       WORDPRESS_USER_EMAIL: admin@email.local
+      WORDPRESS_USER_PASSWORD: wordpress
     command: >
       ./.devcontainer/postCreateCommand.sh
