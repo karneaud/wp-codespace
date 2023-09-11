@@ -19,15 +19,6 @@
 	"customizations": {
 		"vscode": {		
 			"extensions": [
-				"xdebug.php-pack",
-				"yogensia.searchwpdocs",
-				"valeryanm.vscode-phpsab",
-				"johnbillion.vscode-wordpress-hooks",
-				"ms-azuretools.vscode-docker",
-				"dbaeumer.vscode-eslint",
-				"neilbrayfield.php-docblocker",
-				"shevaua.phpcs",
-				"ms-vscode.makefile-tools"
 			]
 		}
 	},
@@ -35,6 +26,7 @@
 	// For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
 	"forwardPorts": [
 		80,
+		8080,
 		3306,
 		443
 	],
