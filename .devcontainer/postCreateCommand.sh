@@ -8,17 +8,19 @@ fi
 
 # Start Mysql
 echo "Setup MYSQL..."
-service mysql start 
-mysqladmin create $MYSQL_DATABASE
-mysqladmin create wordpress
-mysqladmin --host=localhost password $MYSQL_USER_PASSWORD
-mysql -hlocalhost -uroot -p$MYSQL_USER_PASSWORD -e "CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD'; GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER'@'localhost'; GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost'; GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER'@'localhost'; FLUSH PRIVILEGES;"
+sudo service mysql start 
+sudo mysqladmin create $MYSQL_DATABASE
+sudo mysqladmin create wordpress
+sudo mysqladmin --host=localhost password $MYSQL_USER_PASSWORD
+sudo mysql -hlocalhost -uroot -p$MYSQL_USER_PASSWORD -e "CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD'; GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER'@'localhost'; GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost'; GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER'@'localhost'; FLUSH PRIVILEGES;"
 
 # Apache
-chmod 777 /etc/apache2/sites-available/000-default.conf
-sed "s@.*DocumentRoot.*@\tDocumentRoot $PWD/wordpress@" .devcontainer/000-default.conf > /etc/apache2/sites-available/000-default.conf
+sudo chmod 777 /etc/apache2/sites-available/000-default.conf
+sudo sed "s@.*DocumentRoot.*@\tDocumentRoot $PWD/wordpress@" .devcontainer/000-default.conf > /etc/apache2/sites-available/000-default.conf
 update-rc.d apache2 defaults 
-service apache2 restart
+sudo a2enmod rewrite
+sudo a2enmod ssl
+sudo service apache2 restart
 
 LOCALE="en_US"
 
