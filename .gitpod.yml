@@ -14,6 +14,7 @@ tasks:
       MYSQL_DATABASE: wordpress
       WORDPRESS_TITLE: wordpress
       WORDPRESS_USER: karneaud
+      WORDPRESS_USER_EMAIL: admin@email.local
     command: >
       ./.devcontainer/postCreateCommand.sh
   - name: Composer
