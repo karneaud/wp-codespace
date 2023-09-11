@@ -35,20 +35,11 @@
 	// For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
 	"forwardPorts": [
 		80,
-		3306
+		3306,
+		443
 	],
 
-	"postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh > .devcontainer/postCreateCommand.log",
-	
-	"portsAttributes": {
-		"3306": {
-			"label": "Database (internal)"
-		},
-		"80": {
-			"label": "WordPress"
-		}
-	},
-	"postStartCommand": "service apache2 start"
+	"postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh > .devcontainer/postCreateCommand.log"
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
 }
