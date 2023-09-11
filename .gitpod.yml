@@ -17,6 +17,3 @@ tasks:
       WORDPRESS_USER_EMAIL: admin@email.local
     command: >
       ./.devcontainer/postCreateCommand.sh
-  - name: Composer
-    before: >
-      echo "{ \"github-oauth\" : {  \"github.com\": \"${GITHUB_TOKEN}\" }  }" > auth.json
