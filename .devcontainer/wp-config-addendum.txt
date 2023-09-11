@@ -1,4 +1,7 @@
-define( 'FS_METHOD', 'direct' );
-define( 'WP_DEBUG', true );
-define( 'WP_DEBUG_LOG', true );
+$host = $_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'];
+define('WP_SITEURL', "https://$host/" );
+define( 'WP_HOME',WP_SITEURL);
+define('FS_METHOD', 'direct');
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
 $_SERVER['HTTPS'] = 'on';
