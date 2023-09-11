@@ -8,5 +8,5 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 RUN docker-php-ext-configure zip
 RUN docker-php-ext-install mysqli pdo pdo_mysql zip
 
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/w
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
